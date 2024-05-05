@@ -117,4 +117,12 @@ public class Stage {
         this.dateFin = dateFin;
     }
 
+    public List<Inscription> getListInscription() {
+        return listInscription;
+    }
+
+    public void setListInscription(List<Inscription> listInscription) {
+        this.listInscription = listInscription;
+    }
+
 }

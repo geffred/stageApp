@@ -96,4 +96,12 @@ public class Enfant {
     public void setSexe(Gender sexe) {
         this.sexe = sexe;
     }
+
+    public List<Inscription> getListInscription() {
+        return listInscription;
+    }
+
+    public void setListInscription(List<Inscription> listInscription) {
+        this.listInscription = listInscription;
+    }
 }

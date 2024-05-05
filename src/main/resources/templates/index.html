@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/index.css">
+    <title>StageApp</title>
+</head>
+<body>
+        
+        <div class="section">
+
+          <div class="cardSection">
+               <div class="imageContainer">
+                    <img src="img/student.jpg" alt="enfantImage">
+               </div>
+               <div class="content">
+                    <h1>Enfants</h1>
+                    <p>Interface de gestion des élèves , ici vous pourez
+                       ajouter , modifier ou supprimer des enfants du système
+                    </p>
+               </div>
+               <a th:href="@{/enfants}"> Commencer</a>
+            </div>
+    
+            <div class="cardSection">
+              <div class="imageContainer">
+                   <img src="img/inscription.jpg" alt="enfantImage">
+              </div>
+              <div class="content">
+                   <h1>Inscriptions</h1>
+                   <p>Interface de gestion des inscriptions , ici vous pourez
+                      ajouter , modifier ou supprimer les inscriptions.
+                   </p>
+              </div>
+              <a th:href="@{/inscriptions}"> Commencer</a>
+           </div>
+    
+           <div class="cardSection">
+              <div class="imageContainer">
+                   <img src="img/stage.jpg" alt="enfantImage">
+              </div>
+              <div class="content">
+                   <h1>Stages</h1>
+                   <p>Interface de gestion des stages , ici vous pourez
+                      ajouter , modifier ou supprimer des stages
+                   </p>
+              </div>
+              <a th:href="@{/stages}"> Commencer</a>
+           </div>
+    
+        </div>
+        
+</body>
+</html>
