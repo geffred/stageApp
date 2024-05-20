@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enregistrement des enfants</title>
+</head>
+<body>
+    
+    <form th:action="@{/enfantRegistryForm}" method="POST" th:object="${enfant}"> 
+
+        <input type="hidden" th:field = "*{id}">
+
+        <div class="nomEnfant">
+            <label for="nom">Nom</label>
+            <input type="text" placeholder="Nom" th:field ="*{nom}" id="nom" required>
+            <div th:if="${#fields.hasErrors('nom')}" class="errors">
+                <div th:errors="*{nom}"></div>
+            </div>
+            
+        </div>
+        <div class="prenomEnfant">
+            <label for="prenom">Prenom</label>
+            <input type="text" placeholder="Prenom" th:field ="*{prenom}" id="prenom" required>
+            <div th:if="${#fields.hasErrors('prenom')}" class="errors">
+                <div th:errors="*{prenom}"></div>
+            </div>
+        </div>
+        <div class="gender">
+            <label for="m">
+                M <input type="radio" name="gender" id="m" th:field="*{sexe}"  th:value="M">
+            </label>
+            <label for="f">
+                F <input type="radio" name="gender" id="f" th:field="*{sexe}" th:value="F">
+            </label>
+            <div th:if="${#fields.hasErrors('sexe')}" class="errors">
+                <div th:errors="*{sexe}"></div>
+            </div>
+        </div>
+        <div>
+            <label for="dateNaiss">Date de Naissance </label>
+            <input type="date" th:field="*{dateNaiss}" required>
+            <div th:if="${#fields.hasErrors('dateNaiss')}" class="errors">
+                <div th:errors="*{dateNaiss}"></div>
+            </div>
+        </div>
+
+        <button type="submit">Enregistrer</button>
+    </form>
+</body>
+</html>

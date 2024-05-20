@@ -3,6 +3,7 @@ package com.stage.app.Entity;
 import java.time.LocalDate;
 import java.util.List;
 
+import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -15,10 +16,10 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-
+import jakarta.validation.constraints.Future;
+import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.PastOrPresent;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 
 @Entity
@@ -28,27 +29,29 @@ public class Stage {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Column(unique = true)
+    @Pattern(regexp = "^([a-zA-Z][ ]*)+$", message = "Seules les lettres sont acceptées")
     private String denom;
 
     @Column
-    @Pattern(regexp = "[0-9]+")
-    @Min(value = 3, message = "l'age minimal est de 3 an")
+    @Min(value = 3, message = "l'age minimal est de 3 ans")
+    @Max(value = 18, message = "l'age maximal est de 18 ans")
+    @NotNull(message = "Ce champs ne doit pas être null")
     private Integer ageMin;
 
     @Column
-    @Min(value = 18, message = "l'age maximal est de 18 ans")
-    @Pattern(regexp = "[0-9]+")
+    @NotNull(message = "Ce champs ne doit pas être null")
+    @Min(value = 3, message = "l'age minimal est de 3 ans")
+    @Max(value = 18, message = "l'age maximal est de 18 ans")
+
     private Integer ageMax;
 
     @DateTimeFormat(pattern = "dd-MM-yy")
-    @NotEmpty(message = "La date de debut ne doit pas être vide")
-    @NotEmpty(message = "La date de debut ne doit pas être null")
+    @NotNull(message = "La date de debut ne doit pas être null")
     LocalDate dateDeb;
 
     @DateTimeFormat(pattern = "dd-MM-yy")
-    @PastOrPresent(message = "la date de naissaince doit être antérieur")
-    @NotEmpty(message = "La date de fin ne doit pas être vide")
-    @NotEmpty(message = "La date de fin ne doit pas être null")
+    @Future(message = "la date de fin doit être dans le future")
+    @NotNull(message = "La date de fin ne doit pas être null")
     LocalDate dateFin;
 
     @OneToMany(cascade = CascadeType.ALL)

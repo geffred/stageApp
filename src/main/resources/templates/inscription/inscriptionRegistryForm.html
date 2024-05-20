@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/index.css">
+    <title>Enregistrement d'une inscription</title>
+</head>
+<body>
+       <form th:action="@{/inscriptionRegistryForm}" th:object="${inscription}" method="POST">
+            <input type="hidden" th:field="*{id}">
+
+            <div>
+                <label for="enfant">enfant</label>
+                <select name="enfant" id="enfant" th:each="enfant : ${enfants}">
+                    <option th:value="${enfant.id}" th:text="${enfant.nom}"></option>
+                </select>
+            </div>
+
+            <div>
+                <label for="stage">stage</label>
+                <select name="stage" id="stage" th:each="stage : ${stages}">
+                    <option th:value="${stage.id}" th:text="${stage.denom}"></option>
+                </select>
+            </div>
+
+            <div>
+                <label for="paye">Payé</label>
+                <input type="checkbox" th:value="true" th:field="*{paye}">
+            </div>
+
+            <button> Enregistrer </button>
+
+            
+       </form>
+
+</body>
+</html>

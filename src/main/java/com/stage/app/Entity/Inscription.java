@@ -20,7 +20,7 @@ public class Inscription {
 
     @Column
     @NotNull(message = "ce champs ne doit pas être null")
-    private Boolean paye;
+    private Boolean paye = false;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Enfant enfant;

@@ -17,6 +17,7 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Pattern;
 
 @Entity
@@ -26,19 +27,24 @@ public class Enfant {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Column
+    @Pattern(regexp = "^([a-zA-Z][ ]*)+$", message = "Seules les lettres sont acceptées")
     @NotEmpty(message = "Ce champ ne doit pas être vide")
-    @Pattern(regexp = "[a-zA-ZÀ-ÖØ-öø-ÿéÉ]+", message = "Le type de donnée entrée n'est pas valide")
     private String nom;
+
     @Column
-    @Pattern(regexp = "[a-zA-ZÀ-ÖØ-öø-ÿéÉ]+", message = "Le type de donnée entrée n'est pas valide")
+    @NotEmpty(message = "Ce champ ne doit pas être vide")
+    @Pattern(regexp = "^([a-zA-Z][ ]*)+$", message = "Seules les lettres sont acceptées")
     private String prenom;
+
     @Column
     @Enumerated(EnumType.STRING)
+    @NotNull(message = "Ce champs ne doit pas être null")
     private Gender sexe;
     @Column
-    @DateTimeFormat(pattern = "dd-MM-yy")
-    @NotEmpty(message = "ce champs ne doit pas être vide")
+    @DateTimeFormat(pattern = "dd-MM-yyyy")
+
     @NotNull(message = "ce champs ne doit pas être null")
+    @Past(message = "vous devez entrer une date dans le passé")
     private LocalDate dateNaiss;
 
     @OneToMany(cascade = CascadeType.ALL)
