@@ -16,6 +16,8 @@ public interface InscriptionRepository extends JpaRepository<Inscription, Intege
     @Query("SELECT i FROM Inscription i WHERE  i.stage.denom LIKE CONCAT('%', :denom, '%')")
     List<Inscription> findByStageDenom(@Param("denom") String denom);
 
-    @Query("SELECT i FROM Inscription i WHERE i.paye = :paye")
-    List<Inscription> findByPaye(@Param("paye") Boolean paye);
+    public List<Inscription> findByEnfantId(Integer id);
+
+    public List<Inscription> findByStageId(Integer id);
+
 }

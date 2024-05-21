@@ -13,7 +13,11 @@
             <div>
                 <label for="enfant">enfant</label>
                 <select name="enfant" id="enfant" th:field="*{enfant}">
-                    <option th:each="enfant : ${enfants}" th:value="${enfant.id}" th:text="${enfant.nom}" ></option>
+                    <option th:each="enfant : ${enfants}" th:value="${enfant.id}"  >
+                        <span th:text="${enfant.id} + ' - '"></span>
+                        <span th:text="${enfant.nom}+ ' - '"></span>
+                        <span th:text="${enfant.prenom}"></span>
+                    </option>
                 </select>
             </div>
 
@@ -33,6 +37,8 @@
 
             
        </form>
+
+       <div th:text="${errorMessage}"></div>
 
 </body>
 </html>

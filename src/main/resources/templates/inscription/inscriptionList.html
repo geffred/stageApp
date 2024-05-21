@@ -20,10 +20,12 @@
             <div>
                 <label for="paye">payer</label>
                 <input type="radio" id="paye" name="paye" th:value="true" >
+                <span th:if="${paye} == 'true' " th:text="P"></span>
             </div>
             <div>
                 <label for="paye">Non payer</label>
                 <input type="radio" id="paye" name="paye" th:value="false" >
+                <span th:if="${paye} == 'false' " th:text="NP"></span>
             </div>
 
             <button type="submit">Rechercher</button>

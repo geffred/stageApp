@@ -1,5 +1,7 @@
 package com.stage.app.Controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,7 +11,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.stage.app.Entity.Enfant;
+import com.stage.app.Entity.Inscription;
 import com.stage.app.Repository.EnfantRepository;
+import com.stage.app.Repository.InscriptionRepository;
 
 import jakarta.validation.Valid;
 
@@ -18,6 +22,9 @@ public class EnfantController {
 
     @Autowired
     EnfantRepository enfantRepository;
+    @Autowired
+    InscriptionRepository inscriptionRepository;
+    private String errorMessage = "";
 
     @GetMapping("/enfants")
     public String getEnfant() {
@@ -36,13 +43,21 @@ public class EnfantController {
     public String getEnfantList(Model model) {
 
         model.addAttribute("enfantList", enfantRepository.findAll());
+        model.addAttribute("errorMessage", errorMessage);
+        errorMessage = "";
         return "enfant/enfantList";
     }
 
     @GetMapping("/enfantDelete/{id}")
     public String getEnfantDelete(@PathVariable Integer id) {
 
-        enfantRepository.deleteById(id);
+        List<Inscription> inscription = inscriptionRepository.findByEnfantId(id);
+
+        if (!inscription.isEmpty()) {
+            errorMessage = "Cet enfant appartient déjà à une inscription !";
+        } else {
+            enfantRepository.deleteById(id);
+        }
         return "redirect:/enfantList";
     }
 

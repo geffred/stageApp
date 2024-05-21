@@ -1,5 +1,7 @@
 package com.stage.app.Controller;
 
+import java.time.LocalDate;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -79,8 +81,30 @@ public class InscriptionController {
     }
 
     @PostMapping("/inscriptionRegistryForm")
-    public String postRegistryForm(@Valid Inscription inscription) {
+    public String postRegistryForm(@Valid Inscription inscription, Model model) {
 
+        int age = LocalDate.now().getYear() - inscription.getEnfant().getDateNaiss().getYear();
+        model.addAttribute("enfants", enfantRepository.findAll());
+        model.addAttribute("stages", stageRepository.findAll());
+        model.addAttribute("inscription", inscription);
+
+        if (age < inscription.getStage().getAgeMin()) {
+
+            model.addAttribute("errorMessage", "l'age de l'enfant n'est pas suffisant il lui faudrait "
+                    + (inscription.getStage().getAgeMin() - age) + " an(s) en plus !");
+            return "inscription/inscriptionRegistryForm";
+        }
+
+        if (!inscriptionRepository.findByEnfantId(inscription.getEnfant().getId()).isEmpty()) {
+
+            for (Inscription i : inscriptionRepository.findByEnfantId(inscription.getEnfant().getId())) {
+                if (i.getStage().getDenom() == inscription.getStage().getDenom()) {
+                    model.addAttribute("errorMessage", "Cet enfant éffectue déjà ce stage");
+                    return "inscription/inscriptionRegistryForm";
+                }
+            }
+        }
+        model.addAttribute("errorMessage", "");
         inscriptionRepository.save(inscription);
         return "redirect:/";
     }

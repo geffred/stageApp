@@ -29,7 +29,10 @@
                 <td><a th:href="@{/enfantDelete/{id}(id = ${enfant.id})}">Supprimer</a></td>
             </tr>
         </tbody>
+       
     </table>
+
+    <div th:text="${errorMessage}"></div>
 
 </body>
 </html>
