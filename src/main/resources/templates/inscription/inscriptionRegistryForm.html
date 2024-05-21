@@ -12,15 +12,15 @@
 
             <div>
                 <label for="enfant">enfant</label>
-                <select name="enfant" id="enfant" th:each="enfant : ${enfants}">
-                    <option th:value="${enfant.id}" th:text="${enfant.nom}"></option>
+                <select name="enfant" id="enfant" th:field="*{enfant}">
+                    <option th:each="enfant : ${enfants}" th:value="${enfant.id}" th:text="${enfant.nom}" ></option>
                 </select>
             </div>
 
             <div>
                 <label for="stage">stage</label>
-                <select name="stage" id="stage" th:each="stage : ${stages}">
-                    <option th:value="${stage.id}" th:text="${stage.denom}"></option>
+                <select name="stage" id="stage" th:field="*{stage}">
+                    <option th:each="stage : ${stages}" th:value="${stage.id}" th:text="${stage.denom}" ></option>
                 </select>
             </div>
 

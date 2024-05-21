@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Liste des Enfants </title>
+</head>
+<body>
+
+    <table>
+        <thead>
+            <tr>
+                <th> Nom</th>
+                <th> Prenom</th>
+                <th> Sexe</th>
+                <th> Date de naissance</th>
+                <th> Editer </td>
+                <th> Supprimer </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="enfant : ${enfantList}">
+                <td th:text="${enfant.id}"> </td>
+                <td th:text="${enfant.nom}"> </td>
+                <td th:text="${enfant.prenom}"> </td>
+                <td th:text="${enfant.sexe}"> </td>
+                <td th:text="${enfant.dateNaiss}"> </td>
+                <td><a th:href="@{/enfantEdit/{id}(id = ${enfant.id})}">Editer</a></td>
+                <td><a th:href="@{/enfantDelete/{id}(id = ${enfant.id})}">Supprimer</a></td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>

@@ -42,17 +42,22 @@ public class Stage {
     @NotNull(message = "Ce champs ne doit pas être null")
     @Min(value = 3, message = "l'age minimal est de 3 ans")
     @Max(value = 18, message = "l'age maximal est de 18 ans")
-
     private Integer ageMax;
 
-    @DateTimeFormat(pattern = "dd-MM-yy")
+    @Column
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @NotNull(message = "La date de debut ne doit pas être null")
     LocalDate dateDeb;
 
-    @DateTimeFormat(pattern = "dd-MM-yy")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Future(message = "la date de fin doit être dans le future")
     @NotNull(message = "La date de fin ne doit pas être null")
     LocalDate dateFin;
+
+    @Column
+    @NotNull(message = "le prix ne doit pas être null")
+    @Min(value = 0, message = "le montant minimum est 0 ")
+    private Integer prix;
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "stage_id", unique = true, updatable = false)
@@ -126,6 +131,14 @@ public class Stage {
 
     public void setListInscription(List<Inscription> listInscription) {
         this.listInscription = listInscription;
+    }
+
+    public Integer getPrix() {
+        return prix;
+    }
+
+    public void setPrix(Integer prix) {
+        this.prix = prix;
     }
 
 }

@@ -50,6 +50,14 @@
             </div>
         </div>
 
+        <div>
+            <label for="prix">prix</label>
+            <input type="number" id="prix" th:field="*{prix}" required>
+            <div th:if="${#fields.hasErrors('prix')}">
+                <div th:errors="*{prix}"></div>
+            </div>
+        </div>
+
         <button type="submit"> Enregistrer</button>
     </form>
 </body>

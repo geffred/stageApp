@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/index.css">
+    <title>Gestion des inscription</title>
+</head>
+<body>
+        <div>
+           liste des inscriptions
+        </div>
+
+        <form th:action="@{/inscriptionFilter}" method="GET">
+            <div>
+                <label for="denom">Rechercher mot clé :</label>
+                <input type="text" name="denom" id="denom" placeholder="Recherche Stage ..."  th:value = "${denom}">
+            </div>
+
+            <div>
+                <label for="paye">payer</label>
+                <input type="radio" id="paye" name="paye" th:value="true" >
+            </div>
+            <div>
+                <label for="paye">Non payer</label>
+                <input type="radio" id="paye" name="paye" th:value="false" >
+            </div>
+
+            <button type="submit">Rechercher</button>
+        </form>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>stage</th>
+                    <th>enfant</th>
+                    <th>status</th>
+                    <th>Editer</th>
+                    <th>supprimer</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="inscription : ${inscriptionList}">
+                    <td th:text="${inscription.id}"></td>
+                    <td th:text="${inscription.stage.denom}"></td>
+                    <td>
+                        <span th:text="${inscription.enfant.id} +'-'"></span>
+                        <span th:text="${inscription.enfant.nom} +'-'"></span>
+                        <span th:text="${inscription.enfant.prenom}"></span>
+                    </td>
+                    <td th:if="${inscription.paye}">
+                        <span> payé </span>
+                    </td>
+                    <td th:unless="${inscription.paye}">
+                        <span> non payé</span>
+                    </td>
+
+                    <td><a th:href="@{/inscriptionEdit/{id}(id = ${inscription.id})}">Editer</a></td>
+                    <td><a th:href="@{/inscriptionDelete/{id}(id = ${inscription.id})}">Supprimer</a></td>
+                </tr>
+            </tbody>
+        </table>
+
+</body>
+</html>

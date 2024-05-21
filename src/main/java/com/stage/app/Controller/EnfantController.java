@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.stage.app.Entity.Enfant;
@@ -31,6 +32,27 @@ public class EnfantController {
         return "enfant/enfantRegistryForm";
     }
 
+    @GetMapping("/enfantList")
+    public String getEnfantList(Model model) {
+
+        model.addAttribute("enfantList", enfantRepository.findAll());
+        return "enfant/enfantList";
+    }
+
+    @GetMapping("/enfantDelete/{id}")
+    public String getEnfantDelete(@PathVariable Integer id) {
+
+        enfantRepository.deleteById(id);
+        return "redirect:/enfantList";
+    }
+
+    @GetMapping("/enfantEdit/{id}")
+    public String getEnfantEdit(@PathVariable Integer id, Model model) {
+
+        model.addAttribute("enfant", enfantRepository.findById(id));
+        return "enfant/enfantRegistryForm";
+    }
+
     @PostMapping("/enfantRegistryForm")
     public String getEnfantRegistyForm(@Valid Enfant enfant, BindingResult result) {
 
@@ -39,7 +61,7 @@ public class EnfantController {
             return "enfant/enfantRegistryForm";
         }
         enfantRepository.save(enfant);
-        return "redirect:/";
+        return "redirect:/enfantList";
     }
 
 }

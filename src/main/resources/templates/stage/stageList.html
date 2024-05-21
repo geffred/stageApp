@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des stages </title>
+</head>
+<body>
+        <div> liste des stages </div>
+        <table>
+            <thead>
+                <tr>
+                    <th> id </th>
+                    <th> Denom </th>
+                    <th> ageMin </th>
+                    <th> ageMax </th>
+                    <th> dateDeb </th>
+                    <th> dateFin </th>
+                    <th> prix </th>
+                    <th> Editer </th>
+                    <th> Supprimer </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="stage :${stageList}">
+                    <td th:text="${stage.id}"> </td>
+                    <td th:text="${stage.denom}"> </td>
+                    <td th:text="${stage.ageMin}"> </td>
+                    <td th:text="${stage.ageMax}"> </td>
+                    <td th:text="${stage.dateDeb}"> </td>
+                    <td th:text="${stage.dateFin}"> </td>
+                    <td th:text="${stage.prix} +'€'"> </td>
+                    <td><a th:href="@{/stageEdit/{id}(id = ${stage.id})}"> Editer </a></td>
+                    <td><a th:href="@{/stageDelete/{id}(id = ${stage.id})}"> Supprimer </a></td>
+                </tr>
+                </tr>
+            </tbody>
+        </table>
+</body>
+</html>

@@ -41,7 +41,7 @@ public class Enfant {
     @NotNull(message = "Ce champs ne doit pas être null")
     private Gender sexe;
     @Column
-    @DateTimeFormat(pattern = "dd-MM-yyyy")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
 
     @NotNull(message = "ce champs ne doit pas être null")
     @Past(message = "vous devez entrer une date dans le passé")
