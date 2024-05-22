@@ -6,12 +6,29 @@
 }
 
 .cardSection{
-
-    max-width: 250px;
-    border: 1px solid  rgba(0, 0, 0, 0.481);
+    position: relative;
+    z-index: 0;
+    max-width: 280px;
+    background: white;
     border-radius: 8px;
     font-family: 'calibri', 'Courier New', Courier, monospace;
+    box-shadow: 0px 0px 2px rgba(8, 8, 8, 0.156);
+    transform: scale(.95);
+    transition: transform .5s;
+    
+}
+.cardSection:hover{
+    box-shadow: -10px 20px 0px rgba(0, 24, 45, 0.788);
+    transform: scale(1);
+    z-index: 10;
+}
+.cardSection:hover .imageContainer{
+    background-color:rgba(38, 132, 255, 0.351);
+   
+}
 
+.cardSection:hover .imageContainer img{
+    transform: scale(1.5) translateY(20%);
 }
 
 .cardSection .imageContainer{
@@ -22,7 +39,12 @@
     position: relative;
     overflow: hidden;
     border-radius: 8px;
+    background-color:transparent;
+    transition: background .5s;
+    cursor: pointer;
+    
 }
+
 
 .cardSection .imageContainer img{
 
@@ -30,29 +52,33 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    z-index: -1;
+    transition: transform .5s;
 }
 
 .cardSection .content{
    
     width: 95%;
     margin: 0px auto;
-    border: 1px solid  rgba(0, 0, 0, 0.107);
     margin: 0px auto;
     border-radius:8px ;
     padding: 10px;
+    color: rgba(255, 255, 255, 0.668);
+    background: rgb(98, 177, 255);
 }
 
 .cardSection .content h1{
 
     font-size: 1em;
-    color: rgb(199, 123, 254);
+    color:  rgb(98, 177, 255);
     font-family: "tw cen mt";
     font-weight: bold;
     text-transform: uppercase;
     margin: 5px 0px;
-    background:  rgba(188, 120, 255, 0.074);
+    background:  rgba(255, 255, 255, 0.948);
     padding: 5px 10px;
     border-radius: 5px;
+    text-align: center;
    
 }
 
@@ -71,9 +97,9 @@
     text-align: center;
     text-decoration: none;
     margin: 10px auto;
-    background: rgb(32, 32, 32);
+    background: rgb(98, 177, 255);
     color: rgba(255, 255, 255, 0.76);
-    border-radius: 20px;
+    border-radius: 5px;
     font-size: .8em;
     text-transform: uppercase;
     transition: all 0.2s ease;
@@ -85,9 +111,9 @@
 .cardSection a:hover{
 
     transform: scale(.95);
-    color: rgb(199, 123, 254);
+    color: rgb(38, 132, 255);
     background: transparent;
-    border: .5px solid rgb(199, 123, 254);
+    border: .5px solid rgb(38, 132, 255);
     
 }
 
