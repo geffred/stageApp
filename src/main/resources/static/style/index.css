@@ -5,6 +5,220 @@
    
 }
 
+main{
+    position: relative;
+    padding-bottom: 50px;
+}
+main .bg{
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+   opacity: .1;
+}
+
+/*              nav style             */
+
+header .nav-stage .logo-group{
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-family: "arial black";
+    font-weight: bold;
+    font-style: normal;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    font-size: 1em;
+    transition: all .2s ease;
+    border-radius: 5px;
+}
+
+header .nav-stage{
+
+    padding: 10px;
+    border-bottom: .5px solid silver;
+}
+
+header .nav-stage .logo-group:hover{
+    opacity: .9;
+}
+
+header .nav-stage .logo-group:hover img{
+    transform: rotate(-360deg);
+}
+
+header .nav-stage .logo-group span{
+    margin: 0px 2px;
+}
+
+header .nav-stage .logo-group img{
+    transition: all 1s ease;
+}
+
+header .nav-stage .logo-group .titre1{
+    color:  rgba(37, 37, 37, 0.901);
+}
+
+header .nav-stage .logo-group .titre2{
+    color: rgb(98, 177, 255);
+}
+
+header .nav-stage .list ul{
+    list-style: none;
+    display: flex;
+    font-family: 'calibri light';
+    margin:auto 0px;
+}
+
+header .nav-stage .list{
+    display: flex;
+    justify-content: end;
+    align-items: center; 
+  
+}
+header .nav-stage .list ul .link{
+
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.853);
+    margin: 0px .2em;
+    padding: 5px 10px;
+    background: white;
+    border-radius: 5px;
+    font-weight: bold;
+   
+}
+header .nav-stage .list ul .link:hover{
+    color: white;
+    background:rgb(98, 176, 255);
+}
+
+
+@media only screen and (max-width:569px){
+    header .nav-stage .list{
+        display: flex;
+        justify-content: center;
+        margin-top: 15px;
+        
+    }
+    header .nav-stage .logo-group div{
+        padding:0px 15px 8px 15px;
+        border-bottom: 1px solid silver;
+    }
+    header .nav-stage .list ul .link{
+        border: .5px solid silver;
+    }
+    header .nav-stage .list ul{
+       
+        padding: 0px;
+    }
+
+}
+
+
+/*              nav style             */
+
+/*                Banner              */
+
+header .banner{
+    width: 100%;
+    max-height: 400px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+   
+}
+
+header .banner .text{
+    z-index: 1;
+    top: 0px;
+    left: 0px;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    color: white;
+    text-align: center;
+}
+
+header .banner .text .titre{
+    font-family: "arial black";
+    font-weight: bold;
+    font-style: normal;
+    text-transform: uppercase;
+    font-size: clamp(6vw , 5em , 1em);
+    line-height: 5px;
+}
+
+header .banner .text p{
+    font-size: clamp(1.5vw , .6em , 5em);
+   
+}
+
+header .banner .text p::after{
+    content: " | ";
+    animation: cursor 1s linear 0s infinite alternate;
+}
+
+@keyframes cursor {
+    0%{
+        content: " ";
+    }
+    100%{
+        content: " | ";
+    }
+    
+}
+
+header .banner img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translateY(-50px);
+    filter: blur(3px);
+    animation: im 10s ease-in-out 0s infinite alternate;
+}
+
+@keyframes im {
+    0%{
+       transform: translateY(0px);
+    }
+   
+    100%{
+        transform: translateY(200px);
+    }
+    
+}
+
+header .banner::after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    background: rgba(32, 32, 32, 0.66);
+}
+
+@media only screen and (max-width:569px){
+    header .banner img{
+      
+        transform: scale(2);
+    }
+}
+
+
+/*                Banner              */
+
+
+
+/*              card style            */
 .cardSection{
     position: relative;
     z-index: 0;
@@ -15,6 +229,7 @@
     box-shadow: 0px 0px 2px rgba(8, 8, 8, 0.156);
     transform: scale(.95);
     transition: transform .5s;
+    transform: translateY(-50px);
     
 }
 .cardSection:hover{
@@ -123,3 +338,44 @@
     gap: 10px;
     flex-wrap: wrap;
 }
+
+/*              card style            */
+
+/*                footer              */
+
+
+footer{
+    padding: 10px 0px;
+    color: silver;
+    background: rgb(33, 33, 33);
+}
+
+footer a{
+    color: white;
+    font-family: "arial black";
+    text-transform: uppercase;
+    font-weight: bold;
+    text-decoration: none;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    transform: translateX(-10px);
+    transition: color .5s ease;
+}
+footer a:hover{
+    color: rgb(112, 112, 112);
+}
+footer small{
+    font-size: .8em;
+    opacity: .6;
+  
+}
+
+
+
+
+
+
+
+
+/*                footer              */
