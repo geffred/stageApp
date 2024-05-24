@@ -1,0 +1,130 @@
+main .menu .block .card-img{
+    max-width: 150px;
+    margin-right:10px;
+    border-radius: 5px;
+    transition: all .5s ease;
+}
+
+main .menu .block:hover .card-img{
+
+    transform: scale(.98);
+}
+
+main .menu .block{
+    margin: 5px 0px;
+    text-decoration: none;
+    background-color: rgb(98, 177, 255);
+    color: white;
+    border-radius: 5px;
+    position: relative;
+
+}
+
+main .menu .block:hover{
+    background: rgba(0, 0, 0, 0.705);
+}
+
+main .menu .block:hover .content img{
+    transform: translateX(50%);
+}
+main .menu .block .content img{
+    max-width: 30px;
+    height: auto;
+}
+
+main .menu .block .bg{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    top: 0px;
+    left: 0px;
+}
+
+main .menu .block .content{
+    margin-top: .8em;
+   
+}
+
+
+main .menu .block .content span{ 
+    font-family: "arial black";
+    text-transform: uppercase;
+    transform: scaleY(1.2);
+}
+
+main .menu .block .content small{
+    font-size: .8em;
+    line-height: 1.2;
+    display: block;
+    text-align: justify;
+    max-width: 80%;
+    position: relative;
+    padding: 0px 0px 10px 0px;
+    margin-top: 5px;
+   
+
+}
+
+main .menu .block .content small::after{
+    position: absolute;
+    content: "";
+    left: 0px;
+    bottom: 0px;
+    width: 0%;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.212);
+    transition: all 1s;
+    overflow: hidden;
+}
+
+main .col1{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 5px;
+    position: relative;
+}
+
+main .col1::after{
+    position: absolute;
+    content: "";
+    left: 0px;
+    left: 0px;
+    border: 1px solid rgba(0, 0, 0, 0.178);
+    transform: scale(.95);
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}
+
+main .menu .block:hover .content small::after{
+    width: 80%;
+}
+
+
+main .menu .block .content img{
+    transition: all .5s ease;
+}
+
+@media only screen and (max-width:400px){
+    main .menu .block .content small{
+        font-size: 2vw;
+        max-width: 100%;
+    }
+    main .menu .block .content span{
+        font-size: 3vw;
+    }
+    main .menu .block .card-img{
+        max-width: 80px;
+    }
+    main .menu .block .content img{
+        width: 20px;
+        height: 20px;
+    }
+    main .menu .block{
+
+        margin: 5px auto;
+        width: 90%;
+    }
+}

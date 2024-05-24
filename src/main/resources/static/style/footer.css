@@ -1,0 +1,39 @@
+/*                footer              */
+
+
+footer{
+    padding: 10px 0px;
+    color: silver;
+    background: rgb(33, 33, 33);
+    
+}
+
+footer a{
+    color: white;
+    font-family: "arial black";
+    text-transform: uppercase;
+    font-weight: bold;
+    text-decoration: none;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    transform: translateX(-10px);
+    transition: color .5s ease;
+}
+footer a:hover{
+    color: rgb(112, 112, 112);
+}
+footer small{
+    font-size: .8em;
+    opacity: .6;
+  
+}
+
+
+
+
+
+
+
+
+/*                footer              */

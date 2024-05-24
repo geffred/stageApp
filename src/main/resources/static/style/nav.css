@@ -1,0 +1,120 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+   
+}
+
+main{
+    position: relative;
+    padding-bottom: 50px;
+}
+main .bg{
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+   opacity: .1;
+}
+
+/*              nav style             */
+
+header .nav-stage .logo-group{
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-family: "arial black";
+    font-weight: bold;
+    font-style: normal;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    font-size: 1em;
+    transition: all .2s ease;
+    border-radius: 5px;
+}
+
+header .nav-stage{
+
+    padding: 10px;
+    border-bottom: .5px solid silver;
+}
+
+header .nav-stage .logo-group:hover{
+    opacity: .9;
+}
+
+header .nav-stage .logo-group:hover img{
+    transform: rotate(-360deg);
+}
+
+header .nav-stage .logo-group span{
+    margin: 0px 2px;
+}
+
+header .nav-stage .logo-group img{
+    transition: all 1s ease;
+}
+
+header .nav-stage .logo-group .titre1{
+    color:  rgba(37, 37, 37, 0.901);
+}
+
+header .nav-stage .logo-group .titre2{
+    color: rgb(98, 177, 255);
+}
+
+header .nav-stage .list ul{
+    list-style: none;
+    display: flex;
+    font-family: 'calibri light';
+    margin:auto 0px;
+}
+
+header .nav-stage .list{
+    display: flex;
+    justify-content: end;
+    align-items: center; 
+  
+}
+header .nav-stage .list ul .link{
+
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.853);
+    margin: 0px .2em;
+    padding: 5px 10px;
+    background: white;
+    border-radius: 5px;
+    font-weight: bold;
+   
+}
+header .nav-stage .list ul .link:hover{
+    color: white;
+    background:rgb(98, 176, 255);
+}
+
+
+@media only screen and (max-width:569px){
+    header .nav-stage .list{
+        display: flex;
+        justify-content: center;
+        margin-top: 15px;
+        
+    }
+    header .nav-stage .logo-group div{
+        padding:0px 15px 8px 15px;
+        border-bottom: 1px solid silver;
+    }
+    header .nav-stage .list ul .link{
+        border: .5px solid silver;
+    }
+    header .nav-stage .list ul{
+       
+        padding: 0px;
+    }
+
+}
+
+
+/*              nav style             */
