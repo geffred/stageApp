@@ -5,6 +5,7 @@ main .menu .block .card-img{
     transition: all .5s ease;
 }
 
+
 main .menu .block:hover .card-img{
 
     transform: scale(.98);
