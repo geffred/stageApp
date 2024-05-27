@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="style/list.css">
     <title>Gestion des inscription</title>
 </head>
-<body>
+<body style="padding-bottom: 100px;">
     <header>
 
         <nav class="nav-stage">
@@ -30,7 +30,7 @@
                                  <li><a th:href="@{/enfants}" class="link">Enfants</a></li>
                                  <li><a th:href="@{/stages}" class="link">Stages</a></li>
                                  <li><a th:href="@{/inscriptions}" class="link">Inscriptions</a></li>
-                                 <li><a th:href="@{/enfants}" class="link">Docs</a></li>
+                                 <li><a href="/file/Stages.docx" class="link">Docs</a></li>
                             </ul>
                        </div>
                   </div>
@@ -105,11 +105,13 @@
                  </tbody>
                  
             </table>
-            <div th:text="${errorMessage}"></div>
+            <a class="add-btn" th:href="@{/inscriptionRegistry}"> Ajouter une Inscription </a>
+            <div th:text="${errorMessage}" style="margin-top: 5px; width: 100%; padding: 5px;color: red;"></div>
+            
         </div>
     </main>
 
-    <footer class="container-fluid" style="position:fixed; bottom: 0px; left: 0px;">
+    <footer class="container-fluid">
         <div class="row">
             <div class="col-12 d-flex justify-content-center ">
                 <div class="content d-flex justify-content-center flex-column  align-items-center">

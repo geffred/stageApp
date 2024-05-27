@@ -10,10 +10,10 @@
     <link rel="icon" href="img/logo_dark.svg">
     <title> Gestion des enfants </title>
 </head>
-<body>
+<body style="padding-top: 40px;">
     <header>
 
-        <nav class="nav-stage" style="position: fixed;top:0px;width: 100%;">
+        <nav class="nav-stage" style="position: fixed;top:0px;width: 100%; z-index: 100;background: white;">
              <div class="container">
                   <div class="row">
                        <a th:href="@{/}" class="logo-group col-lg-2 col-sm-4 col-12">
@@ -29,7 +29,7 @@
                                  <li><a th:href="@{/enfants}" class="link">Enfants</a></li>
                                  <li><a th:href="@{/stages}" class="link">Stages</a></li>
                                  <li><a th:href="@{/inscriptions}" class="link">Inscriptions</a></li>
-                                 <li><a th:href="@{/enfants}" class="link">Docs</a></li>
+                                 <li><a href="/file/Stages.docx" class="link">Docs</a></li>
                             </ul>
                        </div>
                   </div>
@@ -47,7 +47,7 @@
                               <img src="img/kid.jpg" alt="kid_icon" class="card-img img-fluid">
                               <div class="content d-flex flex-column">
                                    <span >Enregistrer un enfant</span> 
-                                   <small> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis, doloribus. Facilis culpa, eos hic quia provident ut repudiandae earum nobis porro voluptates quos id dolore obcaecati exercitationem deleniti, a voluptas!</small>
+                                   <small> Veuillez indiquer le nom, le prénom, le sexe (M ou F) et la date de naissance de l'enfant. Assurez-vous que toutes les informations sont correctes avant de soumettre.</small>
                                    <img src="img/arrow.svg" alt="arrow_icon">
                               </div>
                               
@@ -60,7 +60,7 @@
                               <img src="img/kid02.jpg" alt="icon_kid02" class="card-img img-fluid">
                               <div class="content d-flex flex-column">
                                    <span >Gestion des enfants</span> 
-                                   <small> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis, doloribus. Facilis culpa, eos hic quia provident ut repudiandae earum nobis porro voluptates quos id dolore obcaecati exercitationem deleniti, a voluptas!</small>
+                                   <small> Ici, vous pouvez ajouter, modifier, supprimer et consulter les informations des enfants inscrits.</small>
                                    <img src="img/arrow.svg" alt="arrow_icon">
                               </div>
                               

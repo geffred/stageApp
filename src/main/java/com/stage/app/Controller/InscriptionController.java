@@ -37,6 +37,7 @@ public class InscriptionController {
         model.addAttribute("enfants", enfantRepository.findAll());
         model.addAttribute("stages", stageRepository.findAll());
         model.addAttribute("inscription", new Inscription());
+        model.addAttribute("year", LocalDate.now().getYear());
         return "inscription/inscriptionRegistryForm";
     }
 
@@ -57,6 +58,7 @@ public class InscriptionController {
         model.addAttribute("enfants", enfantRepository.findAll());
         model.addAttribute("stages", stageRepository.findAll());
         model.addAttribute("inscription", inscriptionRepository.findById(id));
+        model.addAttribute("year", LocalDate.now().getYear());
         return "inscription/inscriptionRegistryForm";
     }
 
@@ -87,6 +89,7 @@ public class InscriptionController {
         model.addAttribute("enfants", enfantRepository.findAll());
         model.addAttribute("stages", stageRepository.findAll());
         model.addAttribute("inscription", inscription);
+        model.addAttribute("year", LocalDate.now().getYear());
 
         if (age < inscription.getStage().getAgeMin()) {
 
@@ -106,6 +109,6 @@ public class InscriptionController {
         }
         model.addAttribute("errorMessage", "");
         inscriptionRepository.save(inscription);
-        return "redirect:/";
+        return "redirect:/inscriptionList";
     }
 }

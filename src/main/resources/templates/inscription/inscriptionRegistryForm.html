@@ -4,12 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="style/nav.css">
-    <link rel="stylesheet" href="style/index.css">
-    <link rel="icon" href="img/logo_dark.svg">
+    <link rel="stylesheet" href="/style/nav.css">
+    <link rel="stylesheet" href="/style/index.css">
+    <link rel="stylesheet" href="/style/form.css">
+    <link rel="stylesheet" href="/style/footer.css">
+    <link rel="icon" href="/img/logo_dark.svg">
     <title>Enregistrement d'une inscription</title>
 </head>
-<body>
+<body style="padding-top: 20px;">
     <header>
 
         <nav class="nav-stage">
@@ -17,7 +19,7 @@
                   <div class="row">
                        <a th:href="@{/}" class="logo-group col-lg-2 col-sm-4 col-12">
                             <div>
-                                 <span><img src="img/logo_dark.svg" alt="logo" width="25" height="25"></span>
+                                 <span><img src="/img/logo_dark.svg" alt="logo" width="25" height="25"></span>
                                  <span class="titre1">Stage</span>
                                  <span class="titre2">App</span>
                             </div>
@@ -28,45 +30,78 @@
                                  <li><a th:href="@{/enfants}" class="link">Enfants</a></li>
                                  <li><a th:href="@{/stages}" class="link">Stages</a></li>
                                  <li><a th:href="@{/inscriptions}" class="link">Inscriptions</a></li>
-                                 <li><a th:href="@{/enfants}" class="link">Docs</a></li>
+                                 <li><a href="/file/Stages.docx" class="link">Docs</a></li>
                             </ul>
                        </div>
                   </div>
              </div>
         </nav>
    </header>
-       <form th:action="@{/inscriptionRegistryForm}" th:object="${inscription}" method="POST">
+
+    <main class="container">
+
+        <form th:action="@{/inscriptionRegistryForm}" th:object="${inscription}" method="POST">
+
+            <div class="title">
+                <h3>Formulaire d'inscriptions</h3>
+                <p>Formulaire d'Enregistrement des inscriptions</p>
+            </div>
+
             <input type="hidden" th:field="*{id}">
 
             <div>
-                <label for="enfant">enfant</label>
-                <select name="enfant" id="enfant" th:field="*{enfant}">
-                    <option th:each="enfant : ${enfants}" th:value="${enfant.id}"  >
-                        <span th:text="${enfant.id} + ' - '"></span>
-                        <span th:text="${enfant.nom}+ ' - '"></span>
+                <label for="enfant">Enfant</label>
+                <select name="enfant" id="enfant" th:field="*{enfant}" class="form-select">
+                    <option th:each="enfant : ${enfants}" th:value="${enfant.id}">
+                        <span th:text="${enfant.id} + ' . '"></span>
+                        <span th:text="${enfant.nom}+ ' . '"></span>
                         <span th:text="${enfant.prenom}"></span>
+                        (<span th:text="${year - enfant.dateNaiss.getYear() }"></span> an(s))
                     </option>
                 </select>
             </div>
 
             <div>
-                <label for="stage">stage</label>
-                <select name="stage" id="stage" th:field="*{stage}">
-                    <option th:each="stage : ${stages}" th:value="${stage.id}" th:text="${stage.denom}" ></option>
+                <label for="stage">Stage</label>
+                <select name="stage" id="stage" th:field="*{stage}"  class="form-select">
+                    <option th:each="stage : ${stages}" th:value="${stage.id}">
+                        <span th:text="${stage.denom}"></span>
+                        ( Age min : <span th:text="${stage.ageMin}"></span> an(s) )
+                    </option>
                 </select>
             </div>
 
-            <div>
+           
+
+            <div class="my-2">
                 <label for="paye">Payé</label>
                 <input type="checkbox" th:value="true" th:field="*{paye}">
             </div>
 
             <button> Enregistrer </button>
 
+            <div th:text="${errorMessage}"></div>
+
             
        </form>
 
-       <div th:text="${errorMessage}"></div>
+    </main>
+
+    <footer class="container-fluid">
+        <div class="row">
+            <div class="col-12 d-flex justify-content-center ">
+                <div class="content d-flex justify-content-center flex-column  align-items-center">
+                    <a th:href="@{/}" class="logo">
+                            <img src="/img/logo_white.svg" alt="logo" width="25" height="25">
+                            <span> stageApp </span>
+                    </a>
+                    <small>
+                            Copyright © 2024
+                    </small>
+                </div>
+            </div>
+        </div>
+    </footer>
 
 </body>
 </html>

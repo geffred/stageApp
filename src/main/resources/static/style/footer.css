@@ -29,6 +29,14 @@ footer small{
   
 }
 
+@media only screen and (max-width:1300px){
+    footer{
+        position:fixed; 
+        bottom: 0px;
+        left: 0px;
+    }
+}
+
 
 
 

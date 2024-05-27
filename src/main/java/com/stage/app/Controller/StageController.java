@@ -55,6 +55,7 @@ public class StageController {
             errorMessage = "Ce Stage appartient déjà à une inscription !";
         } else {
             stageRepository.deleteById(id);
+            errorMessage = "";
         }
         return "redirect:/stageList";
     }
@@ -85,7 +86,7 @@ public class StageController {
         model.addAttribute("ageError", "");
         model.addAttribute("dateError", "");
         stageRepository.save(stage);
-        return "redirect:/";
+        return "redirect:/stageList";
     }
 
 }
