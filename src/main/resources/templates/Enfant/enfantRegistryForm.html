@@ -12,100 +12,103 @@
 </head>
 <body  style="padding-top: 20px;">
 
-    <header>
+    <div class="wrapper">
+        <header>
 
-        <nav class="nav-stage"  style="position: fixed;top:0px;width: 100%; z-index: 100;background: white;">
-             <div class="container">
-                  <div class="row">
-                       <a th:href="@{/}" class="logo-group col-lg-2 col-sm-4 col-12">
-                            <div>
-                                 <span><img src="/img/logo_dark.svg" alt="logo" width="25" height="25"></span>
-                                 <span class="titre1">Stage</span>
-                                 <span class="titre2">App</span>
-                            </div>
-                       </a>
+            <nav class="nav-stage"  style="position: fixed;top:0px;width: 100%; z-index: 100;background: white;">
+                 <div class="container">
+                      <div class="row">
+                           <a th:href="@{/}" class="logo-group col-lg-2 col-sm-4 col-12">
+                                <div>
+                                     <span><img src="/img/logo_dark.svg" alt="logo" width="25" height="25"></span>
+                                     <span class="titre1">Stage</span>
+                                     <span class="titre2">App</span>
+                                </div>
+                           </a>
+            
+                           <div class="list col-lg-10 col-sm-8 col-12" >
+                                <ul>
+                                     <li><a th:href="@{/enfants}" class="link">Enfants</a></li>
+                                     <li><a th:href="@{/stages}" class="link">Stages</a></li>
+                                     <li><a th:href="@{/inscriptions}" class="link">Inscriptions</a></li>
+                                     <li><a th:href="@{/enfants}" class="link">Docs</a></li>
+                                </ul>
+                           </div>
+                      </div>
+                 </div>
+            </nav>
+       </header>
         
-                       <div class="list col-lg-10 col-sm-8 col-12" >
-                            <ul>
-                                 <li><a th:href="@{/enfants}" class="link">Enfants</a></li>
-                                 <li><a th:href="@{/stages}" class="link">Stages</a></li>
-                                 <li><a th:href="@{/inscriptions}" class="link">Inscriptions</a></li>
-                                 <li><a th:href="@{/enfants}" class="link">Docs</a></li>
-                            </ul>
-                       </div>
-                  </div>
-             </div>
-        </nav>
-   </header>
+        <main class="container">
     
-    <main class="container">
-
-       
-        <form th:action="@{/enfantRegistryForm}" method="POST" th:object="${enfant}" > 
-
-            <div class="title">
-                <h3>Formulaire d'inscriptions</h3>
-                <p>Formulaire d'Enregistrement des enfants</p>
-            </div>
-
-            <input type="hidden" th:field = "*{id}">
+           
+            <form th:action="@{/enfantRegistryForm}" method="POST" th:object="${enfant}" > 
     
-            <div class="nomEnfant form-group">
-                <label for="nom">Nom</label>
-                <input type="text" placeholder="Nom" th:field ="*{nom}" id="nom" class="form-control">
-                <div th:if="${#fields.hasErrors('nom')}" class="errors">
-                    <div th:errors="*{nom}"></div>
+                <div class="title">
+                    <h3>Formulaire d'inscriptions</h3>
+                    <p>Formulaire d'Enregistrement des enfants</p>
                 </div>
-                
-            </div>
-            <div class="prenomEnfant form-group">
-                <label for="prenom">Prenom</label>
-                <input type="text" placeholder="Prenom" th:field ="*{prenom}" id="prenom" class="form-control" >
-                <div th:if="${#fields.hasErrors('prenom')}" class="errors">
-                    <div th:errors="*{prenom}"></div>
-                </div>
-            </div>
-            <div class="gender form-group">
-                <label for="m">
-                    M <input type="radio" name="gender" id="m" th:field="*{sexe}"  th:value="M">
-                </label>
-                <label for="f">
-                    F <input type="radio" name="gender" id="f" th:field="*{sexe}" th:value="F">
-                </label>
-                <div th:if="${#fields.hasErrors('sexe')}" class="errors">
-                    <div th:errors="*{sexe}"></div>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="dateNaiss">Date de Naissance </label>
-                <input type="date" th:field="*{dateNaiss}" class="form-control" >
-                <div th:if="${#fields.hasErrors('dateNaiss')}" class="errors">
-                    <div th:errors="*{dateNaiss}"></div>
-                </div>
-            </div>
     
-            <button type="submit">Enregistrer</button>
-        </form>
+                <input type="hidden" th:field = "*{id}">
+        
+                <div class="nomEnfant form-group">
+                    <label for="nom">Nom</label>
+                    <input type="text" placeholder="Nom" th:field ="*{nom}" id="nom" class="form-control">
+                    <div th:if="${#fields.hasErrors('nom')}" class="errors">
+                        <div th:errors="*{nom}"></div>
+                    </div>
+                    
+                </div>
+                <div class="prenomEnfant form-group">
+                    <label for="prenom">Prenom</label>
+                    <input type="text" placeholder="Prenom" th:field ="*{prenom}" id="prenom" class="form-control" >
+                    <div th:if="${#fields.hasErrors('prenom')}" class="errors">
+                        <div th:errors="*{prenom}"></div>
+                    </div>
+                </div>
+                <div class="gender form-group">
+                    <label for="m">
+                        M <input type="radio" name="gender" id="m" th:field="*{sexe}"  th:value="M">
+                    </label>
+                    <label for="f">
+                        F <input type="radio" name="gender" id="f" th:field="*{sexe}" th:value="F">
+                    </label>
+                    <div th:if="${#fields.hasErrors('sexe')}" class="errors">
+                        <div th:errors="*{sexe}"></div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="dateNaiss">Date de Naissance </label>
+                    <input type="date" th:field="*{dateNaiss}" class="form-control" >
+                    <div th:if="${#fields.hasErrors('dateNaiss')}" class="errors">
+                        <div th:errors="*{dateNaiss}"></div>
+                    </div>
+                </div>
+        
+                <button type="submit">Enregistrer</button>
+                <a th:href="@{/enfantList}"> Liste des Enfants </a>
+            </form>
+        
     
-
-    </main>
-
+        </main>
     
-    <footer class="container-fluid">
-        <div class="row">
-            <div class="col-12 d-flex justify-content-center ">
-                <div class="content d-flex justify-content-center flex-column  align-items-center">
-                    <a th:href="@{/}" class="logo">
-                            <img src="/img/logo_white.svg" alt="logo" width="25" height="25">
-                            <span> stageApp </span>
-                    </a>
-                    <small>
-                            Copyright © 2024
-                    </small>
+        
+        <footer class="container-fluid">
+            <div class="row">
+                <div class="col-12 d-flex justify-content-center ">
+                    <div class="content d-flex justify-content-center flex-column  align-items-center">
+                        <a th:href="@{/}" class="logo">
+                                <img src="/img/logo_white.svg" alt="logo" width="25" height="25">
+                                <span> stageApp </span>
+                        </a>
+                        <small>
+                                Copyright © 2024
+                        </small>
+                    </div>
                 </div>
             </div>
-        </div>
-    </footer>
+        </footer>
+    </div>
 
 </body>
 </html>

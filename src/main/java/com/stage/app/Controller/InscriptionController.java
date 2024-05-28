@@ -101,7 +101,7 @@ public class InscriptionController {
         if (!inscriptionRepository.findByEnfantId(inscription.getEnfant().getId()).isEmpty()) {
 
             for (Inscription i : inscriptionRepository.findByEnfantId(inscription.getEnfant().getId())) {
-                if (i.getStage().getDenom() == inscription.getStage().getDenom()) {
+                if (i.getStage().getDenom() == inscription.getStage().getDenom() && inscription.getId() != i.getId()) {
                     model.addAttribute("errorMessage", "Cet enfant éffectue déjà ce stage");
                     return "inscription/inscriptionRegistryForm";
                 }

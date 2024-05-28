@@ -10,6 +10,27 @@ form button{
    
 }
 
+form a{
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    width: 100%;
+    padding: 10px 0px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border-color:transparent;
+    border: .1px solid transparent;
+    background-color:rgba(14, 151, 255, 0.73) ;
+    color: white;
+   
+}
+
+form a:hover{
+    background: #ffffff;
+    color: rgb(14, 150, 255);
+    border: .1px solid rgb(14, 150, 255);
+}
+
 form button:hover{
     background: #ffffff;
     color: rgb(14, 150, 255);

@@ -11,88 +11,91 @@
     <title>Gestion des stages </title>
 </head>
 <body>
-    <header>
+    
+     <div class="wrapper">
+          <header>
 
-        <nav class="nav-stage">
-             <div class="container">
-                  <div class="row">
-                       <a th:href="@{/}" class="logo-group col-lg-2 col-sm-4 col-12">
-                            <div>
-                                 <span><img src="img/logo_dark.svg" alt="logo" width="25" height="25"></span>
-                                 <span class="titre1">Stage</span>
-                                 <span class="titre2">App</span>
-                            </div>
-                       </a>
-        
-                       <div class="list col-lg-10 col-sm-8 col-12" >
-                            <ul>
-                                 <li><a th:href="@{/enfants}" class="link">Enfants</a></li>
-                                 <li><a th:href="@{/stages}" class="link">Stages</a></li>
-                                 <li><a th:href="@{/inscriptions}" class="link">Inscriptions</a></li>
-                                 <li><a href="/file/Stages.docx" class="link">Docs</a></li>
-                            </ul>
-                       </div>
-                  </div>
-             </div>
-        </nav>
-   </header>
-
-   <main class="container list">
-     <div class="title">
-          <img src="img/bg.jpg" alt="bg">
-          <span>  GESTION DES STAGES </span>
-      </div>
-      <div class="table-responsive-lg ">
-          <table class="table">
-              <thead>
-                    <tr>
-                         <th> id </th>
-                         <th> Denom </th>
-                         <th> ageMin </th>
-                         <th> ageMax </th>
-                         <th> dateDeb </th>
-                         <th> dateFin </th>
-                         <th> prix </th>
-                         <th> Editer </th>
-                         <th> Supprimer </th>
-                    </tr>
-              </thead>
-
-              <tbody>
-               <tr th:each="stage :${stageList}">
-                    <td th:text="${stage.id}"> </td>
-                    <td th:text="${stage.denom}"> </td>
-                    <td th:text="${stage.ageMin}"> </td>
-                    <td th:text="${stage.ageMax}"> </td>
-                    <td th:text="${stage.dateDeb}"> </td>
-                    <td th:text="${stage.dateFin}"> </td>
-                    <td th:text="${stage.prix} +'€'"> </td>
-                    <td><a th:href="@{/stageEdit/{id}(id = ${stage.id})}"> Editer </a></td>
-                    <td><a th:href="@{/stageDelete/{id}(id = ${stage.id})}"> Supprimer </a></td>
-                </tr>
-              </tbody>
-          
-          </table>
-          <a class="add-btn" th:href="@{/stageRegistry}"> Ajouter un stage </a>
-          <div th:text="${errorMessage}" style="margin-top: 5px; width: 100%; padding: 5px;color: red;"></div>
-      </div>
-   </main>
-
-   <footer class="container-fluid" >
-          <div class="row">
-               <div class="col-12 d-flex justify-content-center ">
-                    <div class="content d-flex justify-content-center flex-column  align-items-center">
-                         <a th:href="@{/}" class="logo">
-                              <img src="img/logo_white.svg" alt="logo" width="25" height="25">
-                               <span> stageApp </span>
-                         </a>
-                         <small>
-                              Copyright © 2024
-                         </small>
+               <nav class="nav-stage">
+                    <div class="container">
+                         <div class="row">
+                              <a th:href="@{/}" class="logo-group col-lg-2 col-sm-4 col-12">
+                                   <div>
+                                        <span><img src="img/logo_dark.svg" alt="logo" width="25" height="25"></span>
+                                        <span class="titre1">Stage</span>
+                                        <span class="titre2">App</span>
+                                   </div>
+                              </a>
+               
+                              <div class="list col-lg-10 col-sm-8 col-12" >
+                                   <ul>
+                                        <li><a th:href="@{/enfants}" class="link">Enfants</a></li>
+                                        <li><a th:href="@{/stages}" class="link">Stages</a></li>
+                                        <li><a th:href="@{/inscriptions}" class="link">Inscriptions</a></li>
+                                        <li><a href="/file/Stages.docx" class="link">Docs</a></li>
+                                   </ul>
+                              </div>
+                         </div>
                     </div>
-               </div>
-          </div>
-   </footer>
-      
+               </nav>
+          </header>
+       
+          <main class="container list">
+            <div class="title">
+                 <img src="img/bg.jpg" alt="bg">
+                 <span>  GESTION DES STAGES </span>
+             </div>
+             <div class="table-responsive-lg ">
+                 <table class="table">
+                     <thead>
+                           <tr>
+                                <th> id </th>
+                                <th> Denom </th>
+                                <th> ageMin </th>
+                                <th> ageMax </th>
+                                <th> dateDeb </th>
+                                <th> dateFin </th>
+                                <th> prix </th>
+                                <th> Editer </th>
+                                <th> Supprimer </th>
+                           </tr>
+                     </thead>
+       
+                     <tbody>
+                      <tr th:each="stage :${stageList}">
+                           <td th:text="${stage.id}"> </td>
+                           <td th:text="${stage.denom}"> </td>
+                           <td th:text="${stage.ageMin}"> </td>
+                           <td th:text="${stage.ageMax}"> </td>
+                           <td th:text="${stage.dateDeb}"> </td>
+                           <td th:text="${stage.dateFin}"> </td>
+                           <td th:text="${stage.prix} +'€'"> </td>
+                           <td><a th:href="@{/stageEdit/{id}(id = ${stage.id})}"> Editer </a></td>
+                           <td><a th:href="@{/stageDelete/{id}(id = ${stage.id})}" class="delete-btn"> Supprimer </a></td>
+                       </tr>
+                     </tbody>
+                 
+                 </table>
+                 <a class="add-btn" th:href="@{/stageRegistry}"> Ajouter un stage </a>
+                 <div th:text="${errorMessage}" style="margin-top: 5px; width: 100%; padding: 5px;color: red;"></div>
+             </div>
+          </main>
+       
+          <footer class="container-fluid" >
+                 <div class="row">
+                      <div class="col-12 d-flex justify-content-center ">
+                           <div class="content d-flex justify-content-center flex-column  align-items-center">
+                                <a th:href="@{/}" class="logo">
+                                     <img src="img/logo_white.svg" alt="logo" width="25" height="25">
+                                      <span> stageApp </span>
+                                </a>
+                                <small>
+                                     Copyright © 2024
+                                </small>
+                           </div>
+                      </div>
+                 </div>
+          </footer>
+     </div>
+<script src="/js/main.js"></script>     
 </body>
 </html>

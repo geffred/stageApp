@@ -12,82 +12,85 @@
     <title>Gestion des stages</title>
 </head>
 <body style="padding-top: 40px;">
-    <header>
 
-          <nav class="nav-stage" style="position: fixed;top:0px;width: 100%; z-index: 100;background: white;">
-             <div class="container">
-                  <div class="row">
-                       <a th:href="@{/}" class="logo-group col-lg-2 col-sm-4 col-12">
-                            <div>
-                                 <span><img src="img/logo_dark.svg" alt="logo" width="25" height="25"></span>
-                                 <span class="titre1">Stage</span>
-                                 <span class="titre2">App</span>
+     <div class="wrapper">
+          <header>
+
+               <nav class="nav-stage" style="position: fixed;top:0px;width: 100%; z-index: 100;background: white;">
+                  <div class="container">
+                       <div class="row">
+                            <a th:href="@{/}" class="logo-group col-lg-2 col-sm-4 col-12">
+                                 <div>
+                                      <span><img src="img/logo_dark.svg" alt="logo" width="25" height="25"></span>
+                                      <span class="titre1">Stage</span>
+                                      <span class="titre2">App</span>
+                                 </div>
+                            </a>
+             
+                            <div class="list col-lg-10 col-sm-8 col-12" >
+                                 <ul>
+                                      <li><a th:href="@{/enfants}" class="link">Enfants</a></li>
+                                      <li><a th:href="@{/stages}" class="link">Stages</a></li>
+                                      <li><a th:href="@{/inscriptions}" class="link">Inscriptions</a></li>
+                                      <li><a href="/file/Stages.docx" class="link">Docs</a></li>
+                                 </ul>
                             </div>
-                       </a>
-        
-                       <div class="list col-lg-10 col-sm-8 col-12" >
-                            <ul>
-                                 <li><a th:href="@{/enfants}" class="link">Enfants</a></li>
-                                 <li><a th:href="@{/stages}" class="link">Stages</a></li>
-                                 <li><a th:href="@{/inscriptions}" class="link">Inscriptions</a></li>
-                                 <li><a href="/file/Stages.docx" class="link">Docs</a></li>
-                            </ul>
                        </div>
                   </div>
-             </div>
-        </nav>
-   </header>
-
-   
-<main class="container my-5">
-     <div class="row">
-          <div class="col-lg-4 col-12 col1"> <img src="img/stages.jpg" alt="enfants" class="img-fluid"> </div>
-          <div class="menu col-lg-8 col-12 ">  
+             </nav>
+          </header>
+     
+        
+          <main class="container my-5">
                <div class="row">
-                    <a th:href="@{/stageRegistry}" class="block d-flex align-items-center py-2">
-                         <img src="img/bg.jpg" alt="bg" class="bg">
-                         <img src="img/kid.jpg" alt="kid_icon" class="card-img img-fluid">
-                         <div class="content d-flex flex-column">
-                              <span >Enregistrer un stage</span> 
-                              <small> Veuillez indiquer le nom du stage, l'âge minimum et maximum des participants, la date de début (jj/mm/aaaa), la date de fin (jj/mm/aaaa) et le prix. Assurez-vous que toutes les informations sont correctes avant de soumettre.</small>
-                              <img src="img/arrow.svg" alt="arrow_icon">
+                    <div class="col-lg-4 col-12 col1"> <img src="img/stages.jpg" alt="enfants" class="img-fluid"> </div>
+                    <div class="menu col-lg-8 col-12 ">  
+                         <div class="row">
+                              <a th:href="@{/stageRegistry}" class="block d-flex align-items-center py-2">
+                                   <img src="img/bg.jpg" alt="bg" class="bg">
+                                   <img src="img/book.jpg" alt="kid_icon" class="card-img img-fluid">
+                                   <div class="content d-flex flex-column">
+                                        <span >Enregistrer un stage</span> 
+                                        <small> Veuillez indiquer le nom du stage, l'âge minimum et maximum des participants, la date de début (jj/mm/aaaa), la date de fin (jj/mm/aaaa) et le prix. Assurez-vous que toutes les informations sont correctes avant de soumettre.</small>
+                                        <img src="img/arrow.svg" alt="arrow_icon">
+                                   </div>
+                                   
+                              </a>
                          </div>
-                         
-                    </a>
+          
+                         <div class="row">
+                              <a th:href="@{/stageList}" class="block d-flex align-items-center py-2">
+                                   <img src="img/bg.jpg" alt="bg" class="bg">
+                                   <img src="img/books.jpg" alt="icon_kid02" class="card-img img-fluid">
+                                   <div class="content d-flex flex-column">
+                                        <span >Liste des stages</span> 
+                                        <small> Ici, vous pouvez ajouter, modifier, supprimer et consulter les détails des stages proposés.</small>
+                                        <img src="img/arrow.svg" alt="arrow_icon">
+                                   </div>
+                                   
+                              </a>
+                         </div>
+          
+                    </div>
                </div>
-
+          </main>
+     
+          <footer class="container-fluid">
                <div class="row">
-                    <a th:href="@{/stageList}" class="block d-flex align-items-center py-2">
-                         <img src="img/bg.jpg" alt="bg" class="bg">
-                         <img src="img/kid02.jpg" alt="icon_kid02" class="card-img img-fluid">
-                         <div class="content d-flex flex-column">
-                              <span >Liste des stages</span> 
-                              <small> Ici, vous pouvez ajouter, modifier, supprimer et consulter les détails des stages proposés.</small>
-                              <img src="img/arrow.svg" alt="arrow_icon">
+                    <div class="col-12 d-flex justify-content-center ">
+                         <div class="content d-flex justify-content-center flex-column  align-items-center">
+                              <a th:href="@{/}" class="logo">
+                                   <img src="img/logo_white.svg" alt="logo" width="25" height="25">
+                                   <span> stageApp </span>
+                              </a>
+                              <small>
+                                   Copyright © 2024
+                              </small>
                          </div>
-                         
-                    </a>
+                    </div>
                </div>
-
-          </div>
+          </footer>
      </div>
-</main>
-
-<footer class="container-fluid" style="position:fixed; bottom: 0px; left: 0px;">
-     <div class="row">
-          <div class="col-12 d-flex justify-content-center ">
-               <div class="content d-flex justify-content-center flex-column  align-items-center">
-                    <a th:href="@{/}" class="logo">
-                         <img src="img/logo_white.svg" alt="logo" width="25" height="25">
-                          <span> stageApp </span>
-                    </a>
-                    <small>
-                         Copyright © 2024
-                    </small>
-               </div>
-          </div>
-     </div>
-</footer>
 
 </body>
 </html>

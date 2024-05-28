@@ -12,120 +12,123 @@
     <title>Gestion des inscription</title>
 </head>
 <body style="padding-bottom: 100px;">
-    <header>
 
-        <nav class="nav-stage">
-             <div class="container">
-                  <div class="row">
-                       <a th:href="@{/}" class="logo-group col-lg-2 col-sm-4 col-12">
-                            <div>
-                                 <span><img src="img/logo_dark.svg" alt="logo" width="25" height="25"></span>
-                                 <span class="titre1">Stage</span>
-                                 <span class="titre2">App</span>
-                            </div>
-                       </a>
-        
-                       <div class="list col-lg-10 col-sm-8 col-12" >
-                            <ul>
-                                 <li><a th:href="@{/enfants}" class="link">Enfants</a></li>
-                                 <li><a th:href="@{/stages}" class="link">Stages</a></li>
-                                 <li><a th:href="@{/inscriptions}" class="link">Inscriptions</a></li>
-                                 <li><a href="/file/Stages.docx" class="link">Docs</a></li>
-                            </ul>
-                       </div>
-                  </div>
-             </div>
-        </nav>
-   </header>
+    <div class="wrapper">
+        <header>
 
-    <main class="container list">
-
-        <div class="title">
-             <img src="img/bg.jpg" alt="bg">
-                <span>  GESTION DES INSCRIPTIONS </span>
-        </div>
-
-        <form th:action="@{/inscriptionFilter}" method="GET" class="row d-flex align-items-center my-2">
-            <div class="col-lg-6">
-                <input type="text" name="denom" class="form-control" placeholder="Rechercher un stage ..."  th:value = "${denom}">
-            </div>
-
-           <div class="d-flex col-lg-2 justify-content-around my-2">
-                <div class="form-group d-flex align-items-center">
-                    <label for="paye">payer</label>
-                    <input type="radio" id="paye" name="paye" th:value="true" >
-                    <span th:if="${paye} == 'true' " th:text="P"></span>
-                </div>
-
-                <div class="form-group  d-flex align-items-center">
-                    <label for="Npaye">non payer</label>
-                    <input type="radio" id="Npaye" name="paye" th:value="false" >
-                    <span th:if="${paye} == 'false' " th:text="NP"></span>
-                </div>
-           </div>
-
-           <div class="col-lg-4">
-                <button type="submit">Rechercher</button>
-           </div>
-
-        </form>
-
-        <div class="table-responsive-lg ">
-                <table class="table">
-                    <thead>
-                    <tr>
-                         <th>id</th>
-                        <th>stage</th>
-                         <th>enfant</th>
-                         <th>status</th>
-                         <th>Editer</th>
-                         <th>supprimer</th>
-                     </tr>
-                 </thead>
-       
-                    <tbody>
-                     <tr th:each="inscription : ${inscriptionList}">
-                        <td th:text="${inscription.id}"></td>
-                         <td th:text="${inscription.stage.denom}"></td>
-                         <td>
-                            <span th:text="${inscription.enfant.id} +'-'"></span>
-                            <span th:text="${inscription.enfant.nom} +'-'"></span>
-                             <span th:text="${inscription.enfant.prenom}"></span>
-                         </td>
-                         <td th:if="${inscription.paye}">
-                             <span> payé </span>
-                         </td>
-                         <td th:unless="${inscription.paye}">
-                            <span> non payé</span>
-                         </td>
-        
-                        <td><a th:href="@{/inscriptionEdit/{id}(id = ${inscription.id})}">Editer</a></td>
-                        <td><a th:href="@{/inscriptionDelete/{id}(id = ${inscription.id})}">Supprimer</a></td>
-                    </tr>
-                 </tbody>
-                 
-            </table>
-            <a class="add-btn" th:href="@{/inscriptionRegistry}"> Ajouter une Inscription </a>
-            <div th:text="${errorMessage}" style="margin-top: 5px; width: 100%; padding: 5px;color: red;"></div>
+            <nav class="nav-stage">
+                 <div class="container">
+                      <div class="row">
+                           <a th:href="@{/}" class="logo-group col-lg-2 col-sm-4 col-12">
+                                <div>
+                                     <span><img src="img/logo_dark.svg" alt="logo" width="25" height="25"></span>
+                                     <span class="titre1">Stage</span>
+                                     <span class="titre2">App</span>
+                                </div>
+                           </a>
             
-        </div>
-    </main>
-
-    <footer class="container-fluid">
-        <div class="row">
-            <div class="col-12 d-flex justify-content-center ">
-                <div class="content d-flex justify-content-center flex-column  align-items-center">
-                    <a th:href="@{/}" class="logo">
-                            <img src="img/logo_white.svg" alt="logo" width="25" height="25">
-                            <span> stageApp </span>
-                    </a>
-                    <small>
-                            Copyright © 2024
-                    </small>
+                           <div class="list col-lg-10 col-sm-8 col-12" >
+                                <ul>
+                                     <li><a th:href="@{/enfants}" class="link">Enfants</a></li>
+                                     <li><a th:href="@{/stages}" class="link">Stages</a></li>
+                                     <li><a th:href="@{/inscriptions}" class="link">Inscriptions</a></li>
+                                     <li><a href="/file/Stages.docx" class="link">Docs</a></li>
+                                </ul>
+                           </div>
+                      </div>
+                 </div>
+            </nav>
+       </header>
+    
+        <main class="container list">
+    
+            <div class="title">
+                 <img src="img/bg.jpg" alt="bg">
+                    <span>  GESTION DES INSCRIPTIONS </span>
+            </div>
+    
+            <form th:action="@{/inscriptionFilter}" method="GET" class="row d-flex align-items-center my-2">
+                <div class="col-lg-6">
+                    <input type="text" name="denom" class="form-control" placeholder="Rechercher un stage ..."  th:value = "${denom}">
+                </div>
+    
+               <div class="d-flex col-lg-2 justify-content-around my-2">
+                    <div class="form-group d-flex align-items-center">
+                        <label for="paye">payer</label>
+                        <input type="radio" id="paye" name="paye" th:value="true" >
+                        <span th:if="${paye} == 'true' " th:text="P"></span>
+                    </div>
+    
+                    <div class="form-group  d-flex align-items-center">
+                        <label for="Npaye">non payer</label>
+                        <input type="radio" id="Npaye" name="paye" th:value="false" >
+                        <span th:if="${paye} == 'false' " th:text="NP"></span>
+                    </div>
+               </div>
+    
+               <div class="col-lg-4">
+                    <button type="submit">Rechercher</button>
+               </div>
+    
+            </form>
+    
+            <div class="table-responsive-lg ">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                             <th>id</th>
+                            <th>stage</th>
+                             <th>enfant</th>
+                             <th>status</th>
+                             <th>Editer</th>
+                             <th>supprimer</th>
+                         </tr>
+                     </thead>
+           
+                        <tbody>
+                         <tr th:each="inscription : ${inscriptionList}">
+                            <td th:text="${inscription.id}"></td>
+                             <td th:text="${inscription.stage.denom}"></td>
+                             <td>
+                                <span th:text="${inscription.enfant.id} +'-'"></span>
+                                <span th:text="${inscription.enfant.nom} +'-'"></span>
+                                 <span th:text="${inscription.enfant.prenom}"></span>
+                             </td>
+                             <td th:if="${inscription.paye}">
+                                 <span> payé </span>
+                             </td>
+                             <td th:unless="${inscription.paye}">
+                                <span> non payé</span>
+                             </td>
+            
+                            <td><a th:href="@{/inscriptionEdit/{id}(id = ${inscription.id})}">Editer</a></td>
+                            <td><a th:href="@{/inscriptionDelete/{id}(id = ${inscription.id})}">Supprimer</a></td>
+                        </tr>
+                     </tbody>
+                     
+                </table>
+                <a class="add-btn" th:href="@{/inscriptionRegistry}"> Ajouter une Inscription </a>
+                <div th:text="${errorMessage}" style="margin-top: 5px; width: 100%; padding: 5px;color: red;"></div>
+                
+            </div>
+        </main>
+    
+        <footer class="container-fluid">
+            <div class="row">
+                <div class="col-12 d-flex justify-content-center ">
+                    <div class="content d-flex justify-content-center flex-column  align-items-center">
+                        <a th:href="@{/}" class="logo">
+                                <img src="img/logo_white.svg" alt="logo" width="25" height="25">
+                                <span> stageApp </span>
+                        </a>
+                        <small>
+                                Copyright © 2024
+                        </small>
+                    </div>
                 </div>
             </div>
-        </div>
-    </footer>
+        </footer>
+    </div>
 
 </body>
 </html>

@@ -116,5 +116,15 @@ header .nav-stage .list ul .link:hover{
 
 }
 
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.wrapper main{
+    flex: 1;
+}
+
 
 /*              nav style             */

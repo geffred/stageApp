@@ -52,7 +52,7 @@
                 <label for="denom">Denom</label>
                 <input type="text" name="denom" id="denom" th:field="*{denom}" placeholder="Entrer le nom du stage" class="form-control">
                 <div th:if="${#fields.hasErrors('denom')}">
-                    <div th:errors="*{denom}"></div>
+                    <div th:errors="*{denom}" class="errors"></div>
                 </div>
             </div>
     
@@ -60,7 +60,7 @@
                 <label for="ageMin">Age Minimum </label>
                 <input type="number" id="ageMin" th:field="*{ageMin}" class="form-control">
                 <div th:if="${#fields.hasErrors('ageMin')}">
-                    <div th:errors="*{ageMin}"></div>
+                    <div th:errors="*{ageMin}" class="errors"></div>
                 </div>
             </div>
     
@@ -68,7 +68,7 @@
                 <label for="ageMax">Age Maximum </label>
                 <input type="number" id="ageMax" th:field="*{ageMax}" class="form-control">
                 <div th:if="${#fields.hasErrors('ageMax')}">
-                    <div th:errors="*{ageMax}"></div>
+                    <div th:errors="*{ageMax}" class="errors"></div>
                 </div>
             </div>
     
@@ -76,7 +76,7 @@
                 <label for="dateDeb">Date de debut</label>
                 <input type="date" id="dateDeb" th:field="*{dateDeb}" class="form-control">
                 <div th:if="${#fields.hasErrors('dateDeb')}">
-                    <div th:errors="*{dateDeb}"></div>
+                    <div th:errors="*{dateDeb}" class="errors"></div>
                 </div>
             </div>
     
@@ -84,7 +84,7 @@
                 <label for="dateFin">Date de fin</label>
                 <input type="date" id="dateFin" th:field="*{dateFin}" class="form-control">
                 <div th:if="${#fields.hasErrors('dateFin')}">
-                    <div th:errors="*{dateFin}"></div>
+                    <div th:errors="*{dateFin}" class="errors"></div>
                 </div>
             </div>
     
@@ -92,11 +92,12 @@
                 <label for="prix">prix</label>
                 <input type="number" id="prix" th:field="*{prix}" class="form-control">
                 <div th:if="${#fields.hasErrors('prix')}">
-                    <div th:errors="*{prix}"></div>
+                    <div th:errors="*{prix}" class="errors"></div>
                 </div>
             </div>
     
             <button type="submit"> Enregistrer</button>
+            <a th:href="@{/stageList}"> Liste des Stages </a>
     
             <div th:text="${ageError}" class="errors"></div>
             <div th:text="${dateError}" class="errors"></div>

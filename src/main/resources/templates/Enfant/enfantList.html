@@ -12,87 +12,89 @@
 </head>
 <body>
     
-    <header>
+ <div class="wrapper">
+     <header>
 
-        <nav class="nav-stage">
-             <div class="container">
-                  <div class="row">
-                       <a th:href="@{/}" class="logo-group col-lg-2 col-sm-4 col-12">
-                            <div>
-                                 <span><img src="img/logo_dark.svg" alt="logo" width="25" height="25"></span>
-                                 <span class="titre1">Stage</span>
-                                 <span class="titre2">App</span>
-                            </div>
-                       </a>
-        
-                       <div class="list col-lg-10 col-sm-8 col-12" >
-                            <ul>
-                                 <li><a th:href="@{/enfants}" class="link">Enfants</a></li>
-                                 <li><a th:href="@{/stages}" class="link">Stages</a></li>
-                                 <li><a th:href="@{/inscriptions}" class="link">Inscriptions</a></li>
-                                 <li><a href="/file/Stages.docx" class="link">Docs</a></li>
-                            </ul>
-                       </div>
-                  </div>
-             </div>
-        </nav>
-   </header>
-
-   <main class="container list">
-        <div class="title">
-            <img src="img/bg.jpg" alt="bg">
-            <span>  GESTION DES ENFANTS </span>
-        </div>
-        <div class="table-responsive-lg ">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th> ID</th>
-                        <th> NOM</th>
-                        <th> PRENOM</th>
-                        <th> SEXE</th>
-                        <th> DATE DE NAISSANCE </th>
-                        <th> EDITER </td>
-                        <th> SUPPRIMER </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr th:each="enfant : ${enfantList}">
-                        <td th:text="${enfant.id}"> </td>
-                        <td th:text="${enfant.nom}"> </td>
-                        <td th:text="${enfant.prenom}"> </td>
-                        <td th:text="${enfant.sexe}"> </td>
-                        <td>
-                            <span th:text="${enfant.dateNaiss.getDayOfMonth()}"></span>
-                            <span th:text="${enfant.dateNaiss.getMonth()}"></span>
-                            <span th:text="${enfant.dateNaiss.getYear()}"></span>
-                        </td>
-                        <td><a th:href="@{/enfantEdit/{id}(id = ${enfant.id})}">Editer</a></td>
-                        <td><a th:href="@{/enfantDelete/{id}(id = ${enfant.id})}">Supprimer</a></td>
-                    </tr>
-                </tbody>
-            
-            </table>
-            <a class="add-btn" th:href="@{/enfantRegistry}"> Ajouter un enfant </a>
-            <div th:text="${errorMessage}" style="margin-top: 5px; width: 100%; padding: 5px;color: red;"></div>
-        </div>
-   </main>
-
-<footer class="container-fluid">
-    <div class="row">
-         <div class="col-12 d-flex justify-content-center ">
-              <div class="content d-flex justify-content-center flex-column  align-items-center">
-                   <a th:href="@{/}" class="logo">
-                        <img src="img/logo_white.svg" alt="logo" width="25" height="25">
-                         <span> stageApp </span>
-                   </a>
-                   <small>
-                        Copyright © 2024
-                   </small>
-              </div>
-         </div>
-    </div>
-</footer>
-
+          <nav class="nav-stage">
+               <div class="container">
+                    <div class="row">
+                         <a th:href="@{/}" class="logo-group col-lg-2 col-sm-4 col-12">
+                              <div>
+                                   <span><img src="img/logo_dark.svg" alt="logo" width="25" height="25"></span>
+                                   <span class="titre1">Stage</span>
+                                   <span class="titre2">App</span>
+                              </div>
+                         </a>
+          
+                         <div class="list col-lg-10 col-sm-8 col-12" >
+                              <ul>
+                                   <li><a th:href="@{/enfants}" class="link">Enfants</a></li>
+                                   <li><a th:href="@{/stages}" class="link">Stages</a></li>
+                                   <li><a th:href="@{/inscriptions}" class="link">Inscriptions</a></li>
+                                   <li><a href="/file/Stages.docx" class="link">Docs</a></li>
+                              </ul>
+                         </div>
+                    </div>
+               </div>
+          </nav>
+     </header>
+  
+     <main class="container list">
+          <div class="title">
+              <img src="img/bg.jpg" alt="bg">
+              <span>  GESTION DES ENFANTS </span>
+          </div>
+          <div class="table-responsive-lg ">
+              <table class="table">
+                  <thead>
+                      <tr>
+                          <th> ID</th>
+                          <th> NOM</th>
+                          <th> PRENOM</th>
+                          <th> SEXE</th>
+                          <th> DATE DE NAISSANCE </th>
+                          <th> EDITER </td>
+                          <th> SUPPRIMER </th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr th:each="enfant : ${enfantList}">
+                          <td th:text="${enfant.id}"> </td>
+                          <td th:text="${enfant.nom}"> </td>
+                          <td th:text="${enfant.prenom}"> </td>
+                          <td th:text="${enfant.sexe}"> </td>
+                          <td>
+                              <span th:text="${enfant.dateNaiss.getDayOfMonth()}"></span>
+                              <span th:text="${enfant.dateNaiss.getMonth()}"></span>
+                              <span th:text="${enfant.dateNaiss.getYear()}"></span>
+                          </td>
+                          <td><a th:href="@{/enfantEdit/{id}(id = ${enfant.id})}">Editer</a></td>
+                          <td><a th:href="@{/enfantDelete/{id}(id = ${enfant.id})}" class="delete-btn" >Supprimer</a></td>
+                      </tr>
+                  </tbody>
+              
+              </table>
+              <a class="add-btn" th:href="@{/enfantRegistry}"> Ajouter un enfant </a>
+              <div th:text="${errorMessage}" style="margin-top: 5px; width: 100%; padding: 5px;color: red;"></div>
+          </div>
+     </main>
+  
+  <footer class="container-fluid">
+      <div class="row">
+           <div class="col-12 d-flex justify-content-center ">
+                <div class="content d-flex justify-content-center flex-column  align-items-center">
+                     <a th:href="@{/}" class="logo">
+                          <img src="img/logo_white.svg" alt="logo" width="25" height="25">
+                           <span> stageApp </span>
+                     </a>
+                     <small>
+                          Copyright © 2024
+                     </small>
+                </div>
+           </div>
+      </div>
+  </footer>
+ </div>
+<script src="/js/main.js"></script>
 </body>
 </html>
