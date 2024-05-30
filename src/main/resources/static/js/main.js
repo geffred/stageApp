@@ -1,5 +1,4 @@
 const deleteButtons = document.querySelectorAll(".delete-btn")
-console.log(deleteButtons) 
 
 deleteButtons.forEach((btn)=>{
     btn.addEventListener('click',(e)=>{
